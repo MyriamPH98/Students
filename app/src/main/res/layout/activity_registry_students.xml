@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlue"
+    tools:context=".RegistryStudents">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="29sp"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:text="@string/txvRegistro"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
+
+        <EditText
+            android:id="@+id/edtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="25"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:hint="@string/edtNombre" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+            <EditText
+                android:id="@+id/edtApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_weight="1"
+                android:hint="@string/edtApellido"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+            <EditText
+                android:id="@+id/edtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_weight="4"
+                android:textColorHint="@color/colorWhite"
+                android:textColor="@color/colorWhite"
+                android:inputType="textEmailAddress"
+                android:hint="@string/edtCorreo" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <EditText
+            android:id="@+id/edtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="4"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:inputType="phone"
+            android:hint="@string/edtTelefono" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="331dp"
+            android:layout_height="221dp"
+            android:layout_gravity="center"
+            android:datePickerMode="calendar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+            <Spinner
+                android:id="@+id/spnGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:entries="@array/Genero" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_rectangle"
+            android:text="@string/btnEnviar"
+            android:textColor="@color/colorWhite" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

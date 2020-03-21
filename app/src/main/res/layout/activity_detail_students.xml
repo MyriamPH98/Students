@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlue"
+    tools:context=".DetailStudents">
+
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txvDetalleEntudiante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="45dp"
+                android:text="@string/txvDetalle"
+                android:textSize="40sp"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/txvNombre"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:ems="8"
+                android:hint="@string/hintNombre"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvDetalleEntudiante" />
+
+            <TextView
+                android:id="@+id/txvApellido"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/hintApellido"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvNombre" />
+
+            <TextView
+                android:id="@+id/txvCorreo"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/hintCorreo"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvApellido" />
+
+            <TextView
+                android:id="@+id/txvtelefono"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/hintTelefono"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvCorreo" />
+
+            <TextView
+                android:id="@+id/txvFecha"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="@string/hintFecha"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvtelefono" />
+
+            <TextView
+                android:id="@+id/txvGenero"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="@string/hintGenero"
+                android:textColorHint="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvFecha" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

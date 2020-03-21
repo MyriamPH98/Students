@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlue"
+    tools:context=".EditStudents">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="29sp"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:text="@string/txvEditar"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
+
+        <EditText
+            android:id="@+id/edtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="25"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:hint="@string/edtNombre" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <EditText
+            android:id="@+id/edtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="1"
+            android:hint="@string/edtApellido"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <EditText
+            android:id="@+id/edtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="4"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:inputType="textEmailAddress"
+            android:hint="@string/edtCorreo" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <EditText
+            android:id="@+id/edtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="4"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:inputType="phone"
+            android:hint="@string/edtTelefono" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <EditText
+            android:id="@+id/edtFechaNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:text="@string/edtFechaBirthday"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Spinner
+            android:id="@+id/spnGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:entries="@array/Genero" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_rectangle"
+            android:text="@string/btnEnviar"
+            android:textColor="@color/colorWhite" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+
+</ScrollView>

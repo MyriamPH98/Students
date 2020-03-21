@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Students</string>
+    <string name="txtAltaEstudiante">Registrar</string>
+    <string name="txtEstudiantes">Mis Estudiantes</string>
+    <string name="txtdetailEstudiantes">Detalle Estudiantes</string>
+    <string name="txtdeleteEstudiantes">Eliminar</string>
+    <string name="txteditEstudaintes">Editar</string>
+    <string name="txvBienvenido">Bienvenido</string>
+    <string name="txvRegistro">Alta Estudiante</string>
+    <string name="edtNombre">Nombre</string>
+    <string name="edtApellido">Apellido</string>
+    <string name="edtCorreo">Correo electrónico</string>
+    <string name="edtTelefono">Numero Telefonico</string>
+    <string name="btnEnviar">Enviar</string>
+    <string name="edtFechaBirthday">Fecha de Nacimiento:</string>
+    <string name="txvEditar">Editar Estudiante</string>
+    <string name="txvEliminar">Eliminar Estudiante</string>
+    <string name="txvDetalle">Detalle Estudiante</string>
+    <string name="hintNombre">Nombre</string>
+    <string name="hintApellido">Apellido</string>
+    <string name="hintCorreo">Correo electronico</string>
+    <string name="hintTelefono">Telefono</string>
+    <string name="hintFecha">Fecha de Nacimiento</string>
+    <string name="hintGenero">Genero</string>
+    <string name="txvMisEstudi">Mis Estudiantes</string>
+</resources>
