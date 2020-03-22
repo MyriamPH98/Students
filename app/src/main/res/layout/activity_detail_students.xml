@@ -8,7 +8,6 @@
     android:background="@color/colorBlue"
     tools:context=".DetailStudents">
 
-
     <ScrollView android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +35,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:ems="8"
+                android:textColor="@color/colorWhite"
                 android:hint="@string/hintNombre"
+                android:textSize="23dp"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -50,7 +51,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:ems="10"
+                android:textColor="@color/colorWhite"
                 android:hint="@string/hintApellido"
+                android:textSize="23dp"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -64,7 +67,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:ems="10"
+                android:textColor="@color/colorWhite"
                 android:hint="@string/hintCorreo"
+                android:textSize="23dp"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -72,13 +77,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/txvApellido" />
 
             <TextView
-                android:id="@+id/txvtelefono"
+                android:id="@+id/txvTelefono"
                 android:layout_width="300dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:ems="10"
+                android:textColor="@color/colorWhite"
                 android:hint="@string/hintTelefono"
+                android:textSize="23dp"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -92,11 +99,13 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:hint="@string/hintFecha"
+                android:textSize="23dp"
                 android:textColorHint="@color/colorWhite"
+                android:textColor="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txvtelefono" />
+                app:layout_constraintTop_toBottomOf="@+id/txvTelefono" />
 
             <TextView
                 android:id="@+id/txvGenero"
@@ -105,6 +114,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:hint="@string/hintGenero"
+                android:textSize="23dp"
+                android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

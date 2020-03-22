@@ -22,5 +22,5 @@
     <string name="hintTelefono">Telefono</string>
     <string name="hintFecha">Fecha de Nacimiento</string>
     <string name="hintGenero">Genero</string>
-    <string name="txvMisEstudi">Mis Estudiantes</string>
+    <string name="txvMisEstudi">Estudiantes</string>
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlue"
+    android:orientation="vertical"
     tools:context=".ShowStudents">
 
     <TextView
@@ -12,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="25dp"
         android:text="@string/txvMisEstudi"
         android:textColor="@color/colorWhite"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +25,9 @@
         android:id="@+id/ltvEstudiantes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvMisEstudiantes"
-        tools:layout_editor_absoluteX="27dp" />
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvTituloEliminar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,6 @@
         android:title="@string/txtEstudiantes"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/detailStudents"
-        android:icon="@mipmap/ic_launcher"
-        android:title="@string/txtdetailEstudiantes"
-        app:showAsAction="never" />
-
     <item android:id="@+id/deleteStudents"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/txtdeleteEstudiantes"

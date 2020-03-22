@@ -25,16 +25,14 @@ class ConnectionDb(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,n
                 return readableDatabase
         }
     }
-
     companion object {
         const val DATABASE_NAME = "UNIVERSIDAD"
         const val DATABASE_VERSION = 1
         const val TABLE_NAME_STUDENTS = "CTL_ESTUDIANTES"
         const val CREATE_TABLE = "CREATE TABLE $TABLE_NAME_STUDENTS(Id INTEGER PRIMARY KEY AUTOINCREMENT,Nombre VARCHAR(20)," +
-                "Apellido VARCHAR(15),Correo VARCHAR(30), Telefono VARCHAR(10), Genero INT,Birthday VARCHAR(10))"
+                "Apellido VARCHAR(15),Correo VARCHAR(30), Telefono VARCHAR(10), Genero INT,Birthday DATE)"
         const val DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME_STUDENTS"
         const val MODE_WRITE = 1
         const val MODE_READ = 2
     }
-
 }

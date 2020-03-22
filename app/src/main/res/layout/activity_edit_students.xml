@@ -7,115 +7,118 @@
     android:background="@color/colorBlue"
     tools:context=".EditStudents">
 
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="29sp"
-            android:textColorHint="@color/colorWhite"
-            android:textColor="@color/colorWhite"
-            android:text="@string/txvEditar"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="29sp"
+                    android:textColorHint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/txvEditar"/>
 
-        <EditText
-            android:id="@+id/edtNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="25"
-            android:textColorHint="@color/colorWhite"
-            android:textColor="@color/colorWhite"
-            android:hint="@string/edtNombre" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+                <EditText
+                    android:id="@+id/edtEditNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="25"
+                    android:textColorHint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:hint="@string/edtNombre" />
 
-        <EditText
-            android:id="@+id/edtApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_weight="1"
-            android:hint="@string/edtApellido"
-            android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+                <EditText
+                    android:id="@+id/edtEditApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight="1"
+                    android:hint="@string/edtApellido"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite" />
 
-        <EditText
-            android:id="@+id/edtCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_weight="4"
-            android:textColorHint="@color/colorWhite"
-            android:textColor="@color/colorWhite"
-            android:inputType="textEmailAddress"
-            android:hint="@string/edtCorreo" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
 
-        <EditText
-            android:id="@+id/edtTelefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_weight="4"
-            android:textColorHint="@color/colorWhite"
-            android:textColor="@color/colorWhite"
-            android:inputType="phone"
-            android:hint="@string/edtTelefono" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+                <EditText
+                    android:id="@+id/edtEditCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight="4"
+                    android:textColorHint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/edtCorreo" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
 
-        <EditText
-            android:id="@+id/edtFechaNacimiento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite"
-            android:text="@string/edtFechaBirthday"/>
+                <EditText
+                    android:id="@+id/edtEditTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight="4"
+                    android:textColorHint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:inputType="phone"
+                    android:hint="@string/edtTelefono" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+                <DatePicker
+                    android:id="@+id/dateEditPicker"
+                    android:layout_width="331dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:datePickerMode="calendar" />
 
-        <Spinner
-            android:id="@+id/spnGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:entries="@array/Genero" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+                <Spinner
+                    android:id="@+id/spnEditGenero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:entries="@array/Genero" />
 
-        <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_rectangle"
-            android:text="@string/btnEnviar"
-            android:textColor="@color/colorWhite" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+                <Button
+                    android:id="@+id/btnEditEnviar"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_rectangle"
+                    android:text="@string/btnEnviar"
+                    android:textColor="@color/colorWhite" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+        </LinearLayout>
 
 </ScrollView>

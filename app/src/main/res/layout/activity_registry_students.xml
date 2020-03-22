@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,30 +43,30 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
 
-            <EditText
-                android:id="@+id/edtApellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:layout_weight="1"
-                android:hint="@string/edtApellido"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite" />
+        <EditText
+            android:id="@+id/edtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="1"
+            android:hint="@string/edtApellido"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
 
-            <EditText
-                android:id="@+id/edtCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:layout_weight="4"
-                android:textColorHint="@color/colorWhite"
-                android:textColor="@color/colorWhite"
-                android:inputType="textEmailAddress"
-                android:hint="@string/edtCorreo" />
+        <EditText
+            android:id="@+id/edtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_weight="4"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
+            android:inputType="textEmailAddress"
+            android:hint="@string/edtCorreo" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
@@ -87,7 +88,7 @@
         <DatePicker
             android:id="@+id/datePicker"
             android:layout_width="331dp"
-            android:layout_height="221dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:datePickerMode="calendar" />
 
@@ -95,12 +96,12 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
 
-            <Spinner
-                android:id="@+id/spnGenero"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:entries="@array/Genero" />
+        <Spinner
+            android:id="@+id/spnGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:entries="@array/Genero" />
 
         <Space
             android:layout_width="match_parent"

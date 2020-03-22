@@ -27,16 +27,15 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.showStudents->{
                 val intent = Intent(this@MainActivity,ShowStudents::class.java)
+                intent.putExtra("type","detail")
                 startActivity(intent)
             }
             R.id.editStudents->{
-                val intent = Intent(this@MainActivity,EditStudents::class.java)
+                val intent = Intent(this@MainActivity,ShowStudents::class.java)
+                intent.putExtra("type","edit")
                 startActivity(intent)
             }
-            R.id.detailStudents->{
-                val intent = Intent(this@MainActivity,DetailStudents::class.java)
-                startActivity(intent)
-            }
+
             R.id.deleteStudents->{
                 val intent = Intent(this@MainActivity,DeleteStudents::class.java)
                 startActivity(intent)

@@ -2,9 +2,9 @@ package com.example.students.Data
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
+import java.lang.Exception
 
 class StudentsDb {
 
@@ -35,6 +35,7 @@ class StudentsDb {
     }
 
     fun  studentEdit(student:StudentsEntity): Int {
+        var result = -1
         sqliteDataBase = connectionDb.openConnection(ConnectionDb.MODE_WRITE)
 
         val values = ContentValues()
@@ -47,15 +48,30 @@ class StudentsDb {
         var selection = "Id=?"
         var args = arrayOf(student.id.toString())
 
-        return sqliteDataBase.update(ConnectionDb.TABLE_NAME_STUDENTS,values,selection,args)
+        try {
+            sqliteDataBase.update(ConnectionDb.TABLE_NAME_STUDENTS,values,selection,args)
+            sqliteDataBase.close()
+            result = 1
+        }catch (e: Exception){
+        }
+
+        return result
     }
 
     fun  studentDelete(idStudent:Int): Int {
+        var result = -1
         sqliteDataBase = connectionDb.openConnection(ConnectionDb.MODE_WRITE)
-        var selection = "Id=?"
-        var args = arrayOf(idStudent.toString())
-        sqliteDataBase.delete(ConnectionDb.TABLE_NAME_STUDENTS,selection,args)
-        return sqliteDataBase.delete(ConnectionDb.TABLE_NAME_STUDENTS,selection,args)
+
+        try {
+            sqliteDataBase.delete(ConnectionDb.TABLE_NAME_STUDENTS, "$ID=$idStudent",null)
+            sqliteDataBase.close()
+
+            result = 1
+
+        }catch (e: Exception){
+        }
+
+        return result
     }
 
     fun studentsGetAll(): ArrayList<StudentsEntity> {
@@ -75,22 +91,19 @@ class StudentsDb {
                 student.correo = cursor.getString(3)
                 student.telefono = cursor.getString(4)
                 student.gender = cursor.getInt(5)
-                student.birthday = cursor.getString(6)
+                student.birthday = cursor.getString(6).toString()
 
                 list.add(student)
                 student = StudentsEntity()
 
-                //Log.d("UDELP","${cursor.getInt(0)} ${cursor.getString(1)} ${cursor.getString(2)} ${cursor.getString(3)} ${cursor.getString(4)}" +
-                  //      " ${cursor.getInt(5)} ${cursor.getString(6)}")
             }while (cursor.moveToNext())
         }
-
         sqliteDataBase.close()
 
         return  list
     }
 
-    fun studentsGetOne(idStudent:Int){
+    /*fun studentsGetOne(idStudent:Int){
         sqliteDataBase = connectionDb.openConnection(ConnectionDb.MODE_READ)
         val fields = arrayOf(ID, NOMBRE, APELLIDO, CORREO,TELEFONO, GENERO, BIRTHDAY)
         var selection = "Id=?"
@@ -100,7 +113,7 @@ class StudentsDb {
         if(cursor.moveToFirst()){
             Log.d("UDELP","${cursor.getInt(0)} ${cursor.getString(1)} ${cursor.getString(2)} ${cursor.getInt(3)} ${cursor.getString(4)}")
         }
-    }
+    }*/
 
     private fun lastInsert(): Int {
         var lastId = -1
@@ -111,8 +124,6 @@ class StudentsDb {
         }
         return lastId
     }
-
-
     companion object{
         const val ID = "Id"
         const val NOMBRE = "Nombre"
