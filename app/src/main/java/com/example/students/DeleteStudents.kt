@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
@@ -20,55 +21,51 @@ class DeleteStudents : AppCompatActivity() {
 
     private var listStudents:ArrayList<StudentsEntity>? = null
     private val studentsDb = StudentsDb(this)
+    private var student = StudentsEntity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delete_students)
 
-        listStudents = studentsDb.studentsGetAll()
-        ltvDeleteStudent.adapter = customerAdapter(this,listStudents!!)
+        //listStudents = studentsDb.studentsGetAll()
+        //ltvDeleteStudent.adapter = customerAdapter(this,listStudents!!)
 
-        ltvDeleteStudent.setOnItemClickListener { parent, view, position, id ->
-           val student = listStudents!![position]
-           // customAlertDialog("¿Seguro que desea eliminar el estudiante seleccionado?",student).show()
-            miDialogo("Seguro que desea eliminar el estudiante seleccionado?", student).show()
+        val myAdapter = ArrayAdapter<String>(this@DeleteStudents,android.R.layout.simple_list_item_1,studentsDb.studentsGetAll())
+        ltvDeleteStudent.adapter = myAdapter
+
+        ltvDeleteStudent.setOnItemClickListener { adapterView: AdapterView<*>, view, position, id ->
+
+            //val student = listStudents!![position]
+            val item = adapterView.getItemAtPosition(position).toString()
+            val splitItem = item.split(" ")
+            student.id = splitItem[0].toInt()
+            customAlertDialog("¿Seguro que desea eliminar el estudiante seleccionado?",student).show()
         }
     }
 
-    private fun miDialogo(message:String, student: StudentsEntity) : AlertDialog{
-        val miAlerta = AlertDialog.Builder(this@DeleteStudents)
-        miAlerta.setMessage(message)
-        miAlerta.setPositiveButton("SI") { dialog, which ->
-            studentsDb.studentDelete(student.id)
-            Toast.makeText(this@DeleteStudents, "Estudiante eliminado", Toast.LENGTH_SHORT).show()
-            ltvDeleteStudent.adapter = customerAdapter(this,listStudents!!)
-        }
-        miAlerta.setNegativeButton("NO") { dialog, which ->
-            Toast.makeText(this@DeleteStudents, "Estudiante no eliminado", Toast.LENGTH_SHORT).show()
-        }
-        return miAlerta.create()
-    }
+    private fun customAlertDialog(message: String,student:StudentsEntity) : AlertDialog {
 
-    /*private fun customAlertDialog(message: String,student: StudentsEntity) : AlertDialog {
         val alert = AlertDialog.Builder(this).apply {
             setMessage(message)
         }
         alert.setPositiveButton("SI") { dialog, which ->
             if (studentsDb.studentDelete(student.id) != -1 ) {
+                Log.d("BOSS","I´m the boss")
                 Toast.makeText(this@DeleteStudents,"Estudiante Eliminado",Toast.LENGTH_LONG).show()
-                customAdapter(this,listStudents!!).notifyDataSetChanged()
-                ltvDeleteStudent.adapter = customerAdapter(this, listStudents!!)
+                finish();
+                startActivity(intent);
+                //customAdapter(this,listStudents!!).notifyDataSetChanged()
             }else{
+                Log.d("BOSS","I´m not the boss")
                 Toast.makeText(this@DeleteStudents,"Estudiante no se pudo eliminar",Toast.LENGTH_LONG).show()
             }
         }
         alert.setNegativeButton("NO") { dialog, which ->
         }
         return alert.create()
-    }*/
-
+    }
 }
-class customAdapter (context: Context, private val list: ArrayList<StudentsEntity>):
+/*class CustomAdapter (context: Context, private val list: ArrayList<StudentsEntity>):
     ArrayAdapter<String>(context, android.R.layout.simple_list_item_1) {
     override fun getCount(): Int = list.size
     override fun getItemId(position: Int): Long = position.toLong()
@@ -82,4 +79,4 @@ class customAdapter (context: Context, private val list: ArrayList<StudentsEntit
         nameTextView.text = list[position].id.toString() + " " + list[position].nombre +" " + list[position].apellido
         return row
     }
-}
+}*/

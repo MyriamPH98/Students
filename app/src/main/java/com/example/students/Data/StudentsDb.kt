@@ -51,6 +51,7 @@ class StudentsDb {
         try {
             sqliteDataBase.update(ConnectionDb.TABLE_NAME_STUDENTS,values,selection,args)
             sqliteDataBase.close()
+
             result = 1
         }catch (e: Exception){
         }
@@ -74,9 +75,9 @@ class StudentsDb {
         return result
     }
 
-    fun studentsGetAll(): ArrayList<StudentsEntity> {
+    fun studentsGetAll(): Array<String> {
 
-        var list = ArrayList<StudentsEntity>()
+        var list = ArrayList<String>()
         var student = StudentsEntity()
 
         sqliteDataBase = connectionDb.openConnection(ConnectionDb.MODE_READ)
@@ -93,27 +94,38 @@ class StudentsDb {
                 student.gender = cursor.getInt(5)
                 student.birthday = cursor.getString(6).toString()
 
-                list.add(student)
+                list.add("${student.id} ${student.nombre} ${student.apellido}")
                 student = StudentsEntity()
-
             }while (cursor.moveToNext())
         }
+
         sqliteDataBase.close()
 
-        return  list
+        return  list.toTypedArray()
     }
 
-    /*fun studentsGetOne(idStudent:Int){
+    fun studentGetOne(idStudent:Int): StudentsEntity {
+
+        var student = StudentsEntity()
+
         sqliteDataBase = connectionDb.openConnection(ConnectionDb.MODE_READ)
         val fields = arrayOf(ID, NOMBRE, APELLIDO, CORREO,TELEFONO, GENERO, BIRTHDAY)
         var selection = "Id=?"
         var args = arrayOf(idStudent.toString())
         val cursor = sqliteDataBase.query(ConnectionDb.TABLE_NAME_STUDENTS,fields,selection,args,null,null,null)
 
-        if(cursor.moveToFirst()){
-            Log.d("UDELP","${cursor.getInt(0)} ${cursor.getString(1)} ${cursor.getString(2)} ${cursor.getInt(3)} ${cursor.getString(4)}")
+        if(cursor.moveToFirst()) {
+            student.id = cursor.getInt(0)
+            student.nombre = cursor.getString(1)
+            student.apellido = cursor.getString(2)
+            student.correo = cursor.getString(3)
+            student.telefono = cursor.getString(4)
+            student.gender = cursor.getInt(5)
+            student.birthday = cursor.getString(6)
         }
-    }*/
+        sqliteDataBase.close()
+        return student
+    }
 
     private fun lastInsert(): Int {
         var lastId = -1
@@ -124,6 +136,8 @@ class StudentsDb {
         }
         return lastId
     }
+
+
     companion object{
         const val ID = "Id"
         const val NOMBRE = "Nombre"

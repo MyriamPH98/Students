@@ -2,23 +2,29 @@ package com.example.students
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.students.Data.StudentsDb
 import kotlinx.android.synthetic.main.activity_detail_students.*
 
 class DetailStudents : AppCompatActivity() {
+
+    private val studentsDb = StudentsDb(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_students)
 
-        txvNombre.text = intent.getStringExtra("Name")
-        txvApellido.text = intent.getStringExtra("LastName")
-        txvCorreo.text = intent.getStringExtra("Email")
-        txvTelefono.text = intent.getStringExtra("Phone")
-        txvFecha.text = intent.getStringExtra("Date")
-        val gender = intent.getIntExtra("Gender",-1)
+        var idStudent = intent.getIntExtra("ID",-1)
 
-        if (gender != -1){
-            if (gender == 1) {
+        if (idStudent != -1) {
+            var student = studentsDb.studentGetOne(idStudent = idStudent)
+
+            txvNombre.text = student.nombre
+            txvApellido.text = student.apellido
+            txvCorreo.text = student.correo
+            txvTelefono.text = student.telefono
+            txvFecha.text = student.birthday
+
+            if (student.gender == 1) {
                 txvGenero.text = "Femenino"
             }else{
                 txvGenero.text = "Masculino"

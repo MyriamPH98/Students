@@ -6,75 +6,95 @@ import android.util.Log
 import android.widget.Toast
 import com.example.students.Data.StudentsDb
 import com.example.students.Data.StudentsEntity
-import kotlinx.android.synthetic.main.activity_detail_students.*
 import kotlinx.android.synthetic.main.activity_edit_students.*
 import java.util.*
 
 class EditStudents : AppCompatActivity() {
 
+    val studentsDb = StudentsDb(this)
     val students = StudentsEntity()
     val calendar = Calendar.getInstance()
     var date: String? = null
+    var idStudent = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_students)
 
-        edtEditNombre.setText(intent.getStringExtra("EditName"))
-        edtEditApellido.setText(intent.getStringExtra("EditLastName"))
-        edtEditCorreo.setText(intent.getStringExtra("EditEmail"))
-        edtEditTelefono.setText(intent.getStringExtra("EditPhone"))
-        date = intent.getStringExtra("EditDate")
-        val splitDate = date!!.split("-")
-        val oldMonth = splitDate[1].toInt() - 1
+        idStudent = intent.getIntExtra("ID",-1)
 
-        dateEditPicker.init(splitDate[0].toInt(),oldMonth,splitDate[2].toInt()) { view, year, month, day ->
+        if (idStudent != -1) {
+            var student = studentsDb.studentGetOne(idStudent = idStudent)
+            edtEditNombre.setText(student.nombre)
+            edtEditApellido.setText(student.apellido)
+            edtEditCorreo.setText(student.correo)
+            edtEditTelefono.setText(student.telefono)
+            date = student.birthday
+            val splitDate = date!!.split("-")
+            val oldMonth = splitDate[1].toInt() - 1
 
-            var newMonth = month + 1
-            var stringMonth = ""
-            var stringDay = ""
+            dateEditPicker.init(splitDate[0].toInt(),oldMonth,splitDate[2].toInt()) { view, year, month, day ->
 
-            if (newMonth >= 10) {
-                stringMonth = "$newMonth"
-            }else{
-                stringMonth = "0$newMonth"
+                var newMonth = month + 1
+                var stringMonth = ""
+                var stringDay = ""
+
+                if (newMonth >= 10) {
+                    stringMonth = "$newMonth"
+                }else{
+                    stringMonth = "0$newMonth"
+                }
+
+                if (day >= 10 ) {
+                    stringDay = "$day"
+                }else{
+                    stringDay = "0$day"
+                }
+
+                date = "$year-$stringMonth-$stringDay"
+
             }
 
-            if (day >= 10 ) {
-                stringDay = "$day"
-            }else{
-                stringDay = "0$day"
-            }
+            spnEditGenero.setSelection(student.gender)
 
-            date = "$year-$stringMonth-$stringDay"
+            btnEditEnviar.setOnClickListener {
 
-        }
+                val studentsDb = StudentsDb(this)
+                students.id = idStudent
 
-        val gender = intent.getIntExtra("EditGender",-1)
-
-        if (gender != -1) {
-            spnEditGenero.setSelection(gender)
-        }
-
-        btnEditEnviar.setOnClickListener {
-
-            val studentsDb = StudentsDb(this)
-
-            students.id = intent.getIntExtra("ID",-1)
-            students.nombre = edtEditNombre.text.toString()
-            students.apellido = edtEditApellido.text.toString()
-            students.correo = edtEditCorreo.text.toString()
-            students.telefono = edtEditTelefono.text.toString()
-            students.gender = spnEditGenero.getSelectedItemPosition()
-            students.birthday = date!!
-
-            val index = studentsDb.studentEdit(students)
-
-            if (index == 1){
-                cleanControls()
-                Toast.makeText(this@EditStudents,"Estudiante Editado", Toast.LENGTH_LONG).show()
-            }else{
-                Toast.makeText(this@EditStudents,"Estudiante no se pudo editar", Toast.LENGTH_LONG).show()
+                if(edtEditNombre.text.toString().trim().isNotEmpty()){
+                    students.nombre = edtEditNombre.text.toString()
+                    if(edtEditApellido.text.toString().trim().isNotEmpty()){
+                        students.apellido = edtEditApellido.text.toString()
+                        if(edtEditCorreo.text.toString().trim().isNotEmpty()){
+                            students.correo = edtEditCorreo.text.toString()
+                            if(edtEditTelefono.text.toString().isNotEmpty()){
+                                students.telefono = edtEditTelefono.text.toString()
+                                students.birthday = date!!
+                                if (spnEditGenero!!.selectedItem.equals("Genero")){
+                                    Toast.makeText(this@EditStudents, "Seleccione un genero", Toast.LENGTH_LONG).show()
+                                } else{
+                                    val index = studentsDb.studentEdit(students)
+                                    if (index == 1){
+                                        Log.d("UDELP","$index")
+                                        cleanControls()
+                                        Toast.makeText(this@EditStudents,"Estudiante Editado", Toast.LENGTH_LONG).show()
+                                    }else{
+                                        Toast.makeText(this@EditStudents,"Estudiante no se pudo editar", Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                            }else{
+                                Toast.makeText(this@EditStudents, "Ingrese un número de teléfono",Toast.LENGTH_LONG).show()
+                            }
+                        }else{
+                            Toast.makeText(this@EditStudents, "Ingrese un correo electrónico",Toast.LENGTH_LONG).show()
+                        }
+                    }else{
+                        Toast.makeText(this@EditStudents, "Ingrese un apellido",Toast.LENGTH_LONG).show()
+                    }
+                }else{
+                    Toast.makeText(this@EditStudents, "Ingrese un nombre", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
